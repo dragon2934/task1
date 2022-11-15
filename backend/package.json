@@ -1,0 +1,24 @@
+{
+  "name": "restaurant-api",
+  "version": "1.0.0",
+  "description": "restaurant Restful API",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [
+    "restaurant",
+    "restful",
+    "api"
+  ],
+  "author": "Long Zhou",
+  "license": "ISC",
+  "dependencies": {
+    "dotenv": "^16.0.3",
+    "express-winston": "^4.2.0",
+    "fastify": "^4.9.2",
+    "mongoose": "^6.7.2",
+    "winston": "^3.8.2",
+    "winston-daily-rotate-file": "^4.7.1"
+  }
+}
