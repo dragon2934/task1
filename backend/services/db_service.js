@@ -9,5 +9,6 @@ const dbService = {
     GetWaiters: async () =>{
         return mongodb.getWaiters();
     }
+    
 }
 module.exports = dbService;

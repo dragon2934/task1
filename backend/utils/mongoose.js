@@ -4,6 +4,7 @@ const fs = require('fs');
 const { logger } = require('./logger');
 
 const { HTTP_STATUS, ERROR_CODE_KEY} = require('../utils/constant');
+const { CooksData, WaitersData } = require('../data/data');
 
 let url = `mongodb://${
   process.env.MONGO_USER
@@ -28,20 +29,33 @@ mongoose
   .then(() => logger.info('Mongoose Connected to MongoDB...'))
   .catch((err) => logger.error(`Could not connect to MongoDB... ${JSON.stringify(err)}`));
 
+//check record
 
 
 const staffSchema = new mongoose.Schema({
-  cooks: {
-    monday:[],
-    tuesday:[],
-    wednesday:[],
-    thursday:[],
-    friday:[]
-  },
+  cooks: {},
   waiters:{}
 },{ collection: "staff" });
 
+const Staff = mongoose.model('staff', staffSchema);
 
+var query = Staff.find();
+query.count(function (err, count) {
+    if (err) console.log(err)
+    else if( count === 0){
+      //insert a record
+      const data = {
+        cooks: CooksData,
+        waiters: WaitersData
+      }
+      const itemTobeSaved = new Staff(data);
+      itemTobeSaved.save().then(resp=>{
+
+      }).catch(error =>{
+
+      });
+    }
+});
 
 const mongodb = {
   // payment
