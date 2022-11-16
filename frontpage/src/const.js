@@ -1,0 +1,1 @@
+export const restfulAPIBase = "http://localhost:8000";
